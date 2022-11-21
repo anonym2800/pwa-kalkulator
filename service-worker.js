@@ -1,10 +1,18 @@
 const CACHE_NAME = 'SW-001';
 const toCache = [
-    '/',
-    'manifest.json',
-    'assets/js/register.js',
-    'assets/images/calculator-192.png',
-    'assets/images/calculator.png',
+    "/",
+    "manifest.json",
+    "assets/js/register.js",
+    "assets/css/bootstrap.css",
+    "assets/css/bootstrap.css.map",
+    "assets/css/styles.css",
+    "assets/images/calculator.png",
+    "assets/images/calculator-192.png",
+    "assets/js/bootstrap.js",
+    "assets/js/bootstrap.js.map",
+    "assets/js/jquery-3.3.1.slim.min.js",
+    "assets/js/script.js",
+    "index.html",
 ];
 self.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
@@ -16,7 +24,6 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function (cache) {
-                console.log(cache);
                 return cache.addAll(toCache)
             })
             .then(self.skipWaiting())
